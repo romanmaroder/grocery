@@ -17,6 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+	<base href="/">
 	<meta charset="<?= Yii::$app->charset ?>">
     <?php $this->registerCsrfMetaTags() ?>
 	<title><?= Html::encode($this->title) ?></title>
@@ -103,9 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- //header -->
 
-<!-- banner -->
-<div class="banner">
-    <?= $this->render('//layouts/inc/sidebar') ?>
+
     <?= $content ?>
 	<!-- newsletter -->
 	<div class="newsletter">
