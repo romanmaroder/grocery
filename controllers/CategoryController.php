@@ -15,15 +15,15 @@
         {
             $category = Category::findOne($id);
 
-            $this->view->title = $category->title;
 
-            if(empty($category)){
-               throw new NotFoundHttpException('Такой категории нет');
-           }
+            if ( empty($category) ) {
+                throw new NotFoundHttpException('Такой категории нет');
+            }
+            $this->setMeta("{$category->title} ::" . \Yii::$app->name, $category->keywords, $category->description);
 
-           $products = Product::find()->where(['category_id'=>$id])->all();
+            $products = Product::find()->where(['category_id' => $id])->all();
 
 
-           return $this->render('view',compact('products','category'));
+            return $this->render('view', compact('products', 'category'));
         }
     }
