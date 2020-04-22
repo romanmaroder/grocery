@@ -35,7 +35,7 @@
 
             $menu = \Yii::$app->cache->get('menu');
 
-            if ($menu) {
+            if ( $menu ) {
                 return $menu;
             }
 
@@ -54,7 +54,7 @@
 
 
             // set cache
-            \Yii::$app->cache->set('menu', $this->menuHtml,60);
+            \Yii::$app->cache->set('menu', $this->menuHtml, 60);
 
             return $this->menuHtml;
         }

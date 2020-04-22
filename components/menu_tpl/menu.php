@@ -4,8 +4,7 @@
 
         <?= $category['title'] ?>
 
-		<?php if ( isset($category['children']) ) echo '<span
-                                class="caret"></span>'?>
+		<?php if ( isset($category['children']) ) echo "<span class='caret'></span>"?>
 	</a>
 
     <?php if ( isset($category['children']) ): ?>
