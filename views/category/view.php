@@ -73,10 +73,10 @@
 		<div class="w3ls_w3l_banner_nav_right_grid">
 			<h3><?= $category->title ?></h3>
             <?php if ( !empty($products) ): ?>
-				<div class="w3ls_w3l_banner_nav_right_grid1">
+				<div class="w3ls_w3l_banner_nav_right_grid1" >
 					<h6>food</h6>
                     <?php foreach ( $products as $product ) : ?>
-						<div class="col-md-3 w3ls_w3l_banner_left">
+						<div class="col-md-3 w3ls_w3l_banner_left" <?php if (count($products) > 4 ) echo 'style="margin-bottom:3em"'; ?>>
 							<div class="hover14 column">
 								<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
 									<?php if ($product->is_offer): ?>
@@ -130,6 +130,9 @@
 						</div>
                     <?php endforeach; ?>
 					<div class="clearfix"></div>
+					<div class="col-md-12">
+						<?= \yii\widgets\LinkPager::widget(['pagination'=>$pages]) ?>
+					</div>
 				</div>
             <?php else: ?>
 				<div class="w3ls_w3l_banner_nav_right_grid1">
