@@ -10,7 +10,7 @@
         'defaultRoute' => 'home/index',
         'language'     => 'ru',
         'name'         => 'Grocery Store a Ecommerce Online Shopping',
-        'layout'=>'grocery',
+        'layout'       => 'grocery',
         'aliases'      => [
             '@bower' => '@vendor/bower-asset',
             '@npm'   => '@vendor/npm-asset',
@@ -53,9 +53,10 @@
                 'showScriptName'      => false,
                 'enableStrictParsing' => false,
                 'rules'               => [
-                    'category/<id:\d+>/page/<page:\d+>'=>'category/view',
-                    'category/<id:\d+>'=>'category/view',
-                    'product/<id:\d+>'=>'product/view',
+                    'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+                    'category/<id:\d+>'                 => 'category/view',
+                    'search'                            => 'category/search',
+                    'product/<id:\d+>'                  => 'product/view',
                 ],
             ],
         ],
