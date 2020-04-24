@@ -112,7 +112,8 @@
 												</h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<form action="checkout.html" method="post">
+												<a href="<?= \yii\helpers\Url::to(['cart/add','id'=>$offer->id]) ?>" data-id="<?= $offer->id ?>" class="button add-to-cart">Add to cart</a>
+												<!--<form action="checkout.html" method="post">
 													<fieldset>
 														<input type="hidden" name="cmd" value="_cart"/>
 														<input type="hidden" name="add" value="1"/>
@@ -128,7 +129,7 @@
 															   class="button"/>
 													</fieldset>
 
-												</form>
+												</form>-->
 
 											</div>
 										</div>

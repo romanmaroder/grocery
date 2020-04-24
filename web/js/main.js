@@ -41,6 +41,14 @@ jQuery(document).ready(function ($) {
        */
     $().UItoTop({easingType: 'easeOutQuart'});
 
+    //Zoom
+    $('#example').okzoom({
+        width: 150,
+        height: 150,
+        border: "1px solid black",
+        shadow: "0 0 5px #000"
+    });
+
 });
 
 // flexSlider
@@ -71,3 +79,25 @@ paypal.minicart.cart.on('checkout', function (evt) {
         evt.preventDefault();
     }
 });
+
+
+/* Cart */
+
+$('.add-to-cart').on('click', function () {
+    let id = $(this).data('id');
+
+    $.ajax({
+        url: 'cart/add',
+        data: {id: id},
+        type: 'GET',
+        success: function (res) {
+            console.log(res);
+        },
+        error: function () {
+            alert('Error')
+        }
+    });
+    return false;
+});
+
+/* cart */
