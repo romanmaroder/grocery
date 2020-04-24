@@ -54,8 +54,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="product_list_header">
 
-		<button type="button" class="button" data-toggle="modal" data-target="#modal-cart">
-			$0
+		<button onclick="getCart()" type="button" class="button" data-toggle="modal" data-target="#modal-cart">
+
+			<span class="cart-sum">
+<!--				$--><?//= $_SESSION['cart.sum'] ?? '0' ?>
+				$<?= isset($_SESSION['cart.sum']) ? $_SESSION['cart.sum'] : '0'?>
+			</span>
 		</button>
 
 		<div class="modal fade" id="modal-cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -68,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h4 class="modal-title" id="myModalLabel">Корзина</h4>
 					</div>
 					<div class="modal-body">
-						...
+
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
