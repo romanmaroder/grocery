@@ -82,8 +82,9 @@ i.badge.badge-notify.my-cart-badge {
 	font-size: 1em;
 	color: transparent;
 	top: 0;
-}.product_list_header span.text-danger {
+}.product_list_header span.del-item {
 	color: #a94442;
+	cursor:pointer;
 }
 
 
