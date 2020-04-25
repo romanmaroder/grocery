@@ -93,8 +93,7 @@ function showCart(cart) {
     }
 }
 
-function getCart()
-{
+function getCart() {
     $.ajax({
         url: 'cart/show',
         type: 'GET',
@@ -108,8 +107,7 @@ function getCart()
     });
 }
 
-function clearCart()
-{
+function clearCart() {
     $.ajax({
         url: 'cart/clear',
         type: 'GET',
@@ -144,12 +142,17 @@ $('.add-to-cart').on('click', function () {
 
 $('#modal-cart .modal-body').on('click', '.del-item', function () {
     let id = $(this).data('id');
+
     $.ajax({
         url: 'cart/del-item',
         data: {id: id},
         type: 'GET',
         success: function (res) {
             if (!res) alert('Ошибка добавления товара');
+            let now_location = document.location.pathname;
+            if (now_location == '/cart/checkout') {
+                location = 'cart/checkout';
+            }
             showCart(res);
         },
         error: function () {
@@ -158,4 +161,25 @@ $('#modal-cart .modal-body').on('click', '.del-item', function () {
     });
 });
 
+
+$('.value-plus, .value-minus').on('click', function () {
+    let id = $(this).data('id'),
+        qty = $(this).data('qty');
+
+    $('.cart-table .overlay').fadeIn();
+
+    $.ajax({
+        url: 'cart/change-cart',
+        data: {id: id, qty: qty},
+        type: "GET",
+        success: function (res) {
+            if (!res) alert('Error product');
+            location = 'cart/checkout';
+        },
+        error: function () {
+            alert('Error');
+        }
+    });
+
+});
 /* cart */
