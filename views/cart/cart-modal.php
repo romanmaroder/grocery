@@ -17,7 +17,7 @@
 			<tbody>
             <?php foreach ( $session['cart'] as $id => $item ): ?>
                 <tr>
-                    <td><?= Html::img("@web/products/{$item['img']}",['alt'=>$item['name'],'style'=>'height:50px']) ?></td>
+                    <td><?= Html::img("@web/products/{$item['img']}",['alt'=>$item['title'],'style'=>'height:50px']) ?></td>
                     <td><?= $item['title'] ?></td>
                     <td><?= $item['qty'] ?>шт</td>
                     <td><?= $item['price'] ?>$</td>
