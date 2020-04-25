@@ -8,6 +8,7 @@
 
     class OrderProduct extends ActiveRecord
     {
+
         public static function tableName()
         {
             return 'order_product';
@@ -22,4 +23,24 @@
                 [['title'], 'string', 'max' => 255],
             ];
         }
+
+        public function saveOrderProducts($products, $order_id)
+        {
+            foreach ( $products as $id => $product ) {
+                $this->id = null;
+                $this->isNewRecord = true;
+                $this->order_id = $order_id;
+                $this->product_id = $id;
+                $this->title = $product['title'];
+                $this->price = $product['price'];
+                $this->qty = $product['qty'];
+                $this->total = $product['qty'] * $product['price'];
+                if ( !$this->save() ) {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
     }

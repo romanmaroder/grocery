@@ -20,6 +20,8 @@
 	<div class="w3l_banner_nav_right">
 		<!-- about -->
 		<div class="privacy about">
+            <?= \app\widgets\Alert::widget() ?>
+
             <?php if ( !empty($session['cart']) ): ?>
 				<h3>Оформление заказа</h3>
 
@@ -49,16 +51,20 @@
 										<td class="invert-image">
 											<a href="<?= Url::to(['product/view', 'id' => $id]) ?>">
                                                 <?= Html::img("@web/products/{$item['img']}", ['alt'   => $item['name'],
-                                                                                               'style' => 'height:50px',
+                                                                                               'style' => 'height:auto; max-width:20%',
                                                                                                'class' => 'img-responsive']) ?>
 											</a>
 										</td>
 										<td class="invert">
 											<div class="quantity">
 												<div class="quantity-select">
-													<div class="entry value-minus" data-qty="-1" data-id="<?= $id ?>">&nbsp;</div>
+													<div class="entry value-minus" data-qty="-1" data-id="<?= $id ?>">
+														&nbsp;
+													</div>
 													<div class="entry value"><span><?= $item['qty'] ?></span></div>
-													<div class="entry value-plus active"  data-qty="1" data-id="<?= $id ?>">&nbsp;</div>
+													<div class="entry value-plus active" data-qty="1"
+														 data-id="<?= $id ?>">&nbsp;
+													</div>
 												</div>
 											</div>
 										</td>
@@ -83,16 +89,29 @@
 					<div class="col-md-4 checkout-left-basket">
 						<h4>Continue to basket</h4>
 						<ul>
-                            <?php  foreach ($session['cart'] as $item) :?>
-							<li><?= $item['title'] ?> <i>-</i> <span>$ <?= $item['price'] * $item['qty'] ?> </span></li>
-                            <?php  endforeach; ?>
-<!--							<li>Total Service Charges <i>-</i> <span>$15.00</span></li>-->
+                            <?php foreach ( $session['cart'] as $item ) : ?>
+								<li><?= $item['title'] ?> <i>-</i> <span>$ <?= $item['price'] * $item['qty'] ?> </span>
+								</li>
+                            <?php endforeach; ?>
+							<!--							<li>Total Service Charges <i>-</i> <span>$15.00</span></li>-->
 							<li>Total <i>-</i> <span>$ <?= $session['cart.sum'] ?></span></li>
 						</ul>
 					</div>
 					<div class="col-md-8 address_form_agile">
-						<h4>Add a new Details</h4>
-						<form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+						<h4>Данные покупателя</h4>
+
+                        <?php $form = \yii\widgets\ActiveForm::begin() ?>
+                        <?php echo $form->field($order, 'name') ?>
+                        <?php echo $form->field($order, 'email') ?>
+                        <?php echo $form->field($order, 'phone') ?>
+                        <?php echo $form->field($order, 'address') ?>
+                        <?php echo $form->field($order, 'note')->textarea(['row' => 5]) ?>
+
+                        <?= Html::submitButton('Оформить', ['class' => 'submit check_out']) ?>
+
+                        <?php \yii\widgets\ActiveForm::end() ?>
+
+						<!--<form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
 							<section class="creditly-wrapper wthree, w3_agileits_wrapper">
 								<div class="information-wrapper">
 									<div class="first-row form-group">
@@ -137,7 +156,7 @@
 						<div class="checkout-right-basket">
 							<a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right"
 																		aria-hidden="true"></span></a>
-						</div>
+						</div>-->
 					</div>
 
 					<div class="clearfix"></div>
