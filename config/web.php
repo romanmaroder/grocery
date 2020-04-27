@@ -46,7 +46,22 @@
                 // send all mails to a file by default. You have to set
                 // 'useFileTransport' to false and configure a transport
                 // for the mailer to send real emails.
-                'useFileTransport' => true,
+                'useFileTransport' => false,
+                'transport'        => [
+                    'class'      => 'Swift_SmtpTransport',
+                    'host'       => 'smtp.yandex.ru',
+                    'username'   => 'roma12041985@yandex.ru',
+                    'password'   => '12APR1985',
+                    'port'       => '587',
+                   'encryption' => 'tls',
+                     'streamOptions' => [
+                        'ssl' => [
+                            'verify_peer' => false,
+                            'verify_peer_name' => false
+                        ]
+                    ]
+
+                ],
             ],
             'log'          => [
                 'traceLevel' => YII_DEBUG ? 3 : 0,

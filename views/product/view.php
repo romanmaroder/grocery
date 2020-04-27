@@ -9,7 +9,7 @@
 		<ul>
 			<li>
 				<i class="fa fa-home" aria-hidden="true"></i>
-				<a href="<?= Url::home() ?>">Home</a>
+				<a href="<?= Url::home() ?>">Главная</a>
 				<span>|</span>
 			</li>
 			<li>

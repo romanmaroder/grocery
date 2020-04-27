@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="w3l_search">
 
 		<form action="<?= Url::to(['category/search']) ?>" method="GET">
-			<input type="text" name="q" placeholder="Search a product..." onfocus="this.value = '';"
+			<input type="text" name="q" placeholder="Поиск товаров..." onfocus="this.value = '';"
 				   onblur="if (this.value == '') {this.value = 'введите данные для поиска...';}" required="">
 			<input type="submit" value=" ">
 		</form>

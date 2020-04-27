@@ -65,7 +65,7 @@
 
         public function actionCheckout()
         {
-            $this->setMeta("оформление заказа");
+            $this->setMeta("Оформление заказа");
             $session = \Yii::$app->session;
 
 
@@ -87,6 +87,16 @@
                 } else {
 
                     $transaction->commit();
+
+                    \Yii::$app->mailer->compose('order',[
+                        'session'=> $session,
+                        'order'=>$order
+                    ])->setFrom([\Yii::$app->params['senderEmail'] => \Yii::$app->params['senderName']])
+                        ->setTo([$order->email,\Yii::$app->params['adminEmail']])
+                        ->setSubject('Заказ с сайта')
+                      ->send();
+
+
 
                     \Yii::$app->session->setFlash('success', 'Ваш заказ принят');
 

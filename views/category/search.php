@@ -7,7 +7,7 @@
 <div class="products-breadcrumb">
 	<div class="container">
 		<ul>
-			<li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= Url::home() ?>">Home</a><span>|</span></li>
+			<li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= Url::home() ?>">Главная</a><span>|</span></li>
 			<li>Поиск</li>
 		</ul>
 	</div>

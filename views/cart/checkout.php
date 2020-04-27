@@ -8,7 +8,7 @@
 <div class="products-breadcrumb">
 	<div class="container">
 		<ul>
-			<li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= Url::home() ?>">Home</a><span>|</span></li>
+			<li><i class="fa fa-home" aria-hidden="true"></i><a href="<?= Url::home() ?>">Главная</a><span>|</span></li>
 			<li>Оформление заказа</li>
 		</ul>
 	</div>
@@ -50,7 +50,7 @@
 										<td class="invert"><?= $i ?></td>
 										<td class="invert-image">
 											<a href="<?= Url::to(['product/view', 'id' => $id]) ?>">
-                                                <?= Html::img("@web/products/{$item['img']}", ['alt'   => $item['name'],
+                                                <?= Html::img("@web/products/{$item['img']}", ['alt'   => $item['title'],
                                                                                                'style' => 'height:auto; max-width:20%',
                                                                                                'class' => 'img-responsive']) ?>
 											</a>
