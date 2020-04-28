@@ -15,6 +15,13 @@
             '@bower' => '@vendor/bower-asset',
             '@npm'   => '@vendor/npm-asset',
         ],
+        'modules'      => [
+            'admin' => [
+                'class'        => 'app\modules\admin\Module',
+                'layout'       => 'admin',
+                'defaultRoute' => 'main/index',
+            ],
+        ],
         'components'   => [
             'assetManager' => [
                 'bundles' => [
@@ -37,6 +44,7 @@
             'user'         => [
                 'identityClass'   => 'app\models\User',
                 'enableAutoLogin' => true,
+                'loginUrl'=>'admin/auth/login',
             ],
             'errorHandler' => [
                 'errorAction' => 'site/error',
@@ -48,15 +56,15 @@
                 // for the mailer to send real emails.
                 'useFileTransport' => false,
                 'transport'        => [
-                    'class'      => 'Swift_SmtpTransport',
-                    'host'       => 'smtp.yandex.ru',
-                    'username'   => 'roma12041985@yandex.ru',
-                    'password'   => '12APR1985',
-                    'port'       => '587',
-                   'encryption' => 'tls',
-                     'streamOptions' => [
+                    'class'         => 'Swift_SmtpTransport',
+                    'host'          => 'smtp.yandex.ru',
+                    'username'      => 'roma12041985@yandex.ru',
+                    'password'      => '12APR1985',
+                    'port'          => '587',
+                    'encryption'    => 'tls',
+                    'streamOptions' => [
                         'ssl' => [
-                            'verify_peer' => false,
+                            'verify_peer'      => false,
                             'verify_peer_name' => false
                         ]
                     ]
