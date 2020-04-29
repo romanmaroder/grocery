@@ -8,7 +8,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'defaultRoute' => 'home/index',
-    'language' => 'ru',
+    'language' => 'ru-RU',
     'name' => 'Grocery Store a Ecommerce Online Shopping',
     'layout' => 'grocery',
     'aliases' => [
@@ -57,11 +57,17 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.ukr.net',
-                'username' => 'yii2_loc@ukr.net',
-                'password' => 'password',
-                'port' => '2525', // 465
-                'encryption' => 'ssl', // tls
+                'host' => 'smtp.yandex.ru',
+                'username' => 'roma12041985@yandex.ru',
+                'password' => '12APR1985',
+                'port' => '587', // 465
+                'encryption' => 'tls', // tls
+                'streamOptions' => [
+                    'ssl' => [
+                        'verify_peer' => false,
+                        'verify_peer_name' => false
+                    ]
+                ]
             ],
         ],
         'log' => [
