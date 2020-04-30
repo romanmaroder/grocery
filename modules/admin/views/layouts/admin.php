@@ -236,8 +236,8 @@ desired effect
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				Статистика магазина
-				<small>Общие данные о магазине</small>
+				<?= $this->title ?>
+<!--				<small>Общие данные о магазине</small>-->
 			</h1>
 
             <?= Breadcrumbs::widget([

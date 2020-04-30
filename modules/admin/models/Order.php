@@ -81,4 +81,10 @@
                 'note'       => 'Примечание',
             ];
         }
+
+
+        public function getOrderProduct()
+        {
+            return $this->hasMany(OrderProduct::class, ['order_id'=>'id']);
+        }
     }
