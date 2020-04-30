@@ -7,15 +7,29 @@ use yii\helpers\Html;
 
 $this->title = "Редактировать заказ: {$model->id}";
 $this->params['breadcrumbs'][] = ['label' => 'Список заказов', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => "Заказ № {$model->id}", 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
-<div class="order-update">
 
 
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-primary">
+				<div class="box-body">
+					<div class="order-update">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+                        <?= $this->render('_form', [
+                            'model' => $model,
+                        ]) ?>
 
+					</div>
+
+				</div>
+
+		</div>
+	</div>
 </div>
+
+
+
+

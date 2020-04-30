@@ -1,6 +1,7 @@
 <?php
 
     use app\assets\AdminAsset;
+    use app\widgets\Alert;
     use yii\helpers\Html;
     use yii\widgets\Breadcrumbs;
 
@@ -247,6 +248,7 @@ desired effect
                 'encodeLabels' => false,
             ]); ?>
 
+			<?= Alert::widget() ?>
 		</section>
 
 		<!-- Main content -->
