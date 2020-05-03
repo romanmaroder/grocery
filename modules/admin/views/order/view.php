@@ -75,8 +75,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
 	<div class="col-md-12">
 
-
 		<?php $items = $model->orderProduct ?>
+
 		<div class="box">
 			<div class="box-header with-border">
 				<h3 class="box-title">Товары в заказе</h3>
