@@ -50,8 +50,8 @@
 										<td class="invert"><?= $i ?></td>
 										<td class="invert-image">
 											<a href="<?= Url::to(['product/view', 'id' => $id]) ?>">
-                                                <?= Html::img("@web/products/{$item['img']}", ['alt'   => $item['title'],
-                                                                                               'style' => 'height:auto; max-width:20%',
+                                                <?= Html::img("@web/{$item['img']}", ['alt'   => $item['title'],
+                                                                                               'style' => 'height:auto; max-width:320px',
                                                                                                'class' => 'img-responsive']) ?>
 											</a>
 										</td>

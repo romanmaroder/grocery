@@ -16,7 +16,7 @@
 
 		<div class="box">
 			<div class="box-header with-border">
-                <?= Html::a('Создать заказ', ['create'], ['class' => 'btn btn-success']) ?>
+<!--                --><?//= Html::a('Создать заказ', ['create'], ['class' => 'btn btn-success']) ?>
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">

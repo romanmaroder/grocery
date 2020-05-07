@@ -14,6 +14,8 @@
         public $data;
         public $tree;
         public $menuHtml;
+        public $model;
+        public $cache_time = 60;
 
         public function init()
         {
@@ -33,10 +35,12 @@
         {
             //get cache
 
-            $menu = \Yii::$app->cache->get('menu');
+            if ( $this->cache_time ) {
+                $menu = \Yii::$app->cache->get('menu');
 
-            if ( $menu ) {
-                return $menu;
+                if ( $menu ) {
+                    return $menu;
+                }
             }
 
 
@@ -54,8 +58,11 @@
 
 
             // set cache
-            \Yii::$app->cache->set('menu', $this->menuHtml, 60);
+            if ($this->cache_time) {
+                \Yii::$app->cache->set('menu', $this->menuHtml, $this->cache_time);
 
+
+            }
             return $this->menuHtml;
         }
 
@@ -73,16 +80,16 @@
 
         }
 
-        protected function getMenuHtml($tree)
+        protected function getMenuHtml($tree, $tab='')
         {
             $str = '';
             foreach ( $tree as $category ) {
-                $str .= $this->catToTemplate($category);
+                $str .= $this->catToTemplate($category, $tab);
             }
             return $str;
         }
 
-        protected function catToTemplate($category)
+        protected function catToTemplate($category, $tab)
         {
             ob_start();
             include __DIR__ . '/menu_tpl/' . $this->tpl;

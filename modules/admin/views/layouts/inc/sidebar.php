@@ -22,20 +22,20 @@
         </div>
 
         <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-            </div>
-        </form>
+<!--        <form action="#" method="get" class="sidebar-form">-->
+<!--            <div class="input-group">-->
+<!--                <input type="text" name="q" class="form-control" placeholder="Search...">-->
+<!--                <span class="input-group-btn">-->
+<!--              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>-->
+<!--              </button>-->
+<!--            </span>-->
+<!--            </div>-->
+<!--        </form>-->
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">HEADER</li>
+            <li class="header">Основные разделы</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active">
 				<a href="<?= \yii\helpers\Url::to(['main/index']) ?>">
@@ -54,12 +54,12 @@
 				</a>
 				<ul class="treeview-menu">
 					<li><a href="<?= \yii\helpers\Url::to(['order/index']) ?>">Список заказов</a></li>
-					<li><a href="<?= \yii\helpers\Url::to(['order/create']) ?>">Добавить заказ</a></li>
+<!--					<li><a href="--><?//= \yii\helpers\Url::to(['order/create']) ?><!--">Добавить заказ</a></li>-->
 				</ul>
 			</li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa fa-list-ol"></i>
+                    <i class="fa fa-list-ol"></i>
                     <span>Категории</span>
                     <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -70,6 +70,19 @@
                     <li><a href="<?= \yii\helpers\Url::to(['category/create']) ?>">Добавить категорию</a></li>
                 </ul>
             </li>
+			<li class="treeview">
+				<a href="#">
+					<i class="fa fa-barcode"></i>
+					<span>Товары</span>
+					<span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+				</a>
+				<ul class="treeview-menu">
+					<li><a href="<?= \yii\helpers\Url::to(['product/index']) ?>">Список товаров</a></li>
+					<li><a href="<?= \yii\helpers\Url::to(['product/create']) ?>">Добавить товар</a></li>
+				</ul>
+			</li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

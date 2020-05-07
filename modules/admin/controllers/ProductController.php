@@ -2,18 +2,17 @@
 
 namespace app\modules\admin\controllers;
 
-use app\modules\admin\models\Product;
 use Yii;
-use app\modules\admin\models\Category;
-use yii\data\ActiveDataProvider;
+use app\modules\admin\models\Product;
+use app\modules\admin\models\ProductSearch;
 use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CategoryController implements the CRUD actions for Category model.
+ * ProductController implements the CRUD actions for Product model.
  */
-class CategoryController extends AppAdminController
+class ProductController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -31,22 +30,22 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Lists all Category models.
+     * Lists all Product models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Category::find()->with('category'),
-        ]);
+        $searchModel = new ProductSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Category model.
+     * Displays a single Product model.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,13 +58,13 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Creates a new Category model.
+     * Creates a new Product model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Category();
+        $model = new Product();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -77,7 +76,7 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Updates an existing Category model.
+     * Updates an existing Product model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -97,7 +96,7 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Deletes an existing Category model.
+     * Deletes an existing Product model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -105,28 +104,21 @@ class CategoryController extends AppAdminController
      */
     public function actionDelete($id)
     {
-        $cats = Category::find()->where(['parent_id'=> $id])->count();
-        $products = Product::find()->where(['category_id'=> $id])->count();
+        $this->findModel($id)->delete();
 
-        if ($cats || $products) {
-            Yii::$app->session->setFlash('error','Для удаления категории необходимо удалить вложенные категории и продукты');
-        }else {
-            $this->findModel($id)->delete();
-            Yii::$app->session->setFlash('success','Данные удалены');
-        }
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Category model based on its primary key value.
+     * Finds the Product model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Category the loaded model
+     * @return Product the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Category::findOne($id)) !== null) {
+        if (($model = Product::findOne($id)) !== null) {
             return $model;
         }
 

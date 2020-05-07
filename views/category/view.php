@@ -91,9 +91,10 @@
 												<div class="snipcart-thumb">
 													<a href="<?= \yii\helpers\Url::to(['product/view',
                                                                                        'id' => $product->id]) ?>">
-                                                        <?= \yii\helpers\Html::img("@web/products/{$product->img}", ['alt' => $product->title]) ?>
+                                                            <?= \yii\helpers\Html::img("@web/{$product->img}", ['alt' => $product->title]) ?>
 													</a>
 													<p> <?= $product->title ?></p>
+
 													<h4>$ <?= $product->price ?>
 
                                                         <?php if ( (float)$product->old_price ): ?>
@@ -109,22 +110,6 @@
                                                                                        'id' => $product->id]) ?>"
 													   data-id="<?= $product->id ?>" class="button add-to-cart">Add to
 														cart</a>
-													<!--<form action="#" method="post">
-														<fieldset>
-															<input type="hidden" name="cmd" value="_cart"/>
-															<input type="hidden" name="add" value="1"/>
-															<input type="hidden" name="business" value=" "/>
-															<input type="hidden" name="item_name"
-																   value="knorr instant soup"/>
-															<input type="hidden" name="amount" value="3.00"/>
-															<input type="hidden" name="discount_amount" value="1.00"/>
-															<input type="hidden" name="currency_code" value="USD"/>
-															<input type="hidden" name="return" value=" "/>
-															<input type="hidden" name="cancel_return" value=" "/>
-															<input type="submit" name="submit" value="Add to cart"
-																   class="button"/>
-														</fieldset>
-													</form>-->
 												</div>
 											</div>
 										</figure>
